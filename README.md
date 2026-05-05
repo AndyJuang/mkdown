@@ -5,11 +5,12 @@ A minimal macOS Markdown editor with a live split-pane preview, dark mode suppor
 ## Features
 
 - **Split-pane layout** — edit Markdown on the left, see the rendered result on the right in real time
-- **Syntax highlighting** — headers, bold, italic, code blocks, links, and more highlighted in the editor
+- **Syntax highlighting** — headers, bold, italic, code blocks, links, and more highlighted in the editor; colours adapt to light/dark theme automatically
 - **Dark / Light / Auto theme** — follows macOS system appearance, or set manually via the View menu
 - **Pinch-to-zoom** — use a two-finger trackpad gesture to zoom the preview
 - **Chinese-friendly font** — preview uses PingFang TC (蘋方-繁) for comfortable Traditional Chinese reading
 - **Code block highlighting** — fenced code blocks are syntax-coloured via [Pygments](https://pygments.org/) (friendly / monokai styles for light / dark mode)
+- **WCAG AAA contrast** — all foreground/background colour pairs meet WCAG AA/AAA contrast requirements in both themes
 - **Export to PDF** — full-fidelity PDF output via Qt's print engine
 - **Export to HTML** — self-contained HTML file with all styles embedded
 - **Open from CLI** — `python3 main.py README.md`
@@ -20,8 +21,6 @@ A minimal macOS Markdown editor with a live split-pane preview, dark mode suppor
 | Light mode | Dark mode |
 |---|---|
 | ![light](docs/screenshot-light.png) | ![dark](docs/screenshot-dark.png) |
-
-> Screenshots will be added after the first tagged release.
 
 ## Requirements
 
@@ -75,9 +74,10 @@ mkdown/
 ├── main.py          # Entry point
 ├── window.py        # Main window, menus, file operations
 ├── editor.py        # Code editor widget with line numbers & syntax highlight
-├── highlighter.py   # QSyntaxHighlighter for Markdown
+├── highlighter.py   # QSyntaxHighlighter for Markdown (theme-aware)
 ├── preview.py       # Live preview widget (QTextBrowser + Pygments)
 ├── theme.py         # Light / dark / auto theme manager
+├── wcag_fix.py      # WCAG contrast audit & colour adjustment script
 ├── requirements.txt
 └── MkDown.spec      # PyInstaller build spec
 ```
