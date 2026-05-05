@@ -27,7 +27,7 @@ class CodeEditor(QPlainTextEdit):
         self._zoom_size = 13
         # Default light colours (overridden by apply_theme)
         self._lineno_bg = QColor('#f6f8fa')
-        self._lineno_fg = QColor('#bbbfc3')
+        self._lineno_fg = QColor('#8a9097')
         self._cur_line_color = QColor('#f6f8fa')
 
         self.blockCountChanged.connect(self._update_line_area_width)
@@ -174,6 +174,8 @@ class EditorWidget(QWidget):
 
     def apply_theme(self, colors: dict):
         self._editor.apply_theme(colors)
+        is_dark = colors['editor_bg'] != '#ffffff'
+        self._highlighter.set_dark(is_dark)
 
     def reset_zoom(self):
         self._editor.reset_zoom()
