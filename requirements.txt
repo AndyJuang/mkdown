@@ -1,0 +1,4 @@
+PyQt5>=5.15.0
+PyQtWebEngine>=5.15.0
+Markdown>=3.4.0
+Pygments>=2.14.0
