@@ -73,7 +73,7 @@ code{{font-family:{_CODE_FONT};font-size:87%;
   background:rgba(110,118,129,.18);border-radius:3px;padding:.1em .35em;}}
 pre code{{background:none;padding:0;border-radius:0;}}
 blockquote{{border-left:4px solid #3b434b;padding:0 1em;
-  color:#8b949e;margin:.8em 0;}}
+  color:#969fa8;margin:.8em 0;}}
 table{{border-collapse:collapse;width:100%;margin:.8em 0;}}
 th{{background:#161b22;font-weight:600;border:1px solid #30363d;
    padding:6px 13px;color:#e6edf3;}}
@@ -97,7 +97,7 @@ code{{font-family:{_CODE_FONT};font-size:87%;
   background:rgba(27,31,35,.07);border-radius:3px;padding:.1em .35em;}}
 pre code{{background:none;padding:0;border-radius:0;}}
 blockquote{{border-left:4px solid #dfe2e5;padding:0 1em;
-  color:#6a737d;margin:.8em 0;}}
+  color:#525a61;margin:.8em 0;}}
 table{{border-collapse:collapse;width:100%;margin:.8em 0;}}
 th{{background:#f0f3f6;font-weight:600;border:1px solid #dfe2e5;padding:6px 13px;}}
 td{{border:1px solid #dfe2e5;padding:6px 13px;}}

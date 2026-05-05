@@ -48,7 +48,7 @@ class MarkdownHighlighter(QSyntaxHighlighter):
         ]
 
         # Inline code  `…`
-        code_fmt = _fmt('#e36209')
+        code_fmt = _fmt('#c45508')
         self._rules.append((QRegularExpression(r'`[^`\n]+`'), code_fmt))
 
         # Fenced code block opening/closing  ```
