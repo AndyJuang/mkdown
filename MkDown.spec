@@ -82,8 +82,8 @@ app = BUNDLE(
     info_plist={
         'CFBundleName': 'MkDown',
         'CFBundleDisplayName': 'MkDown',
-        'CFBundleVersion': '1.1.0',
-        'CFBundleShortVersionString': '1.1',
+        'CFBundleVersion': '1.1.1',
+        'CFBundleShortVersionString': '1.1.1',
         'NSHighResolutionCapable': True,
         'NSRequiresAquaSystemAppearance': False,  # support dark mode
         'LSMinimumSystemVersion': '11.0',

@@ -163,13 +163,17 @@ class TabPane(QWidget):
     def ask_discard(self) -> bool:
         if not self._modified:
             return True
-        btn = QMessageBox.question(
-            self, '未儲存的變更', '文件有未儲存的變更，要儲存嗎？',
-            QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel,
-        )
-        if btn == QMessageBox.Save:
+        msg = QMessageBox(self)
+        msg.setWindowTitle('未儲存的變更')
+        msg.setText('文件有未儲存的變更，要儲存嗎？')
+        msg.setStandardButtons(QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
+        msg.button(QMessageBox.Save).setShortcut(QKeySequence('Ctrl+S'))
+        msg.button(QMessageBox.Discard).setShortcut(QKeySequence('Ctrl+D'))
+        msg.button(QMessageBox.Cancel).setShortcut(QKeySequence('Escape'))
+        result = msg.exec_()
+        if result == QMessageBox.Save:
             return self.save_file()
-        return btn == QMessageBox.Discard
+        return result == QMessageBox.Discard
 
     def save_file(self) -> bool:
         if self._current_file:
