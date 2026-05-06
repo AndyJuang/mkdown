@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.mkdown.quicklook.preview</string>
+    <key>CFBundleName</key>
+    <string>MkDownQuickLook</string>
+    <key>CFBundleExecutable</key>
+    <string>MkDownQuickLook</string>
+    <key>CFBundlePackageType</key>
+    <string>XPC!</string>
+    <key>CFBundleVersion</key>
+    <string>1.1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.1</string>
+    <key>NSExtension</key>
+    <dict>
+        <key>NSExtensionAttributes</key>
+        <dict>
+            <key>QLSupportedContentTypes</key>
+            <array>
+                <string>net.daringfireball.markdown</string>
+                <string>public.markdown</string>
+            </array>
+            <key>QLSupportsSearchableItems</key>
+            <false/>
+        </dict>
+        <key>NSExtensionPointIdentifier</key>
+        <string>com.apple.quicklook.preview</string>
+        <key>NSExtensionPrincipalClass</key>
+        <string>PreviewViewController</string>
+    </dict>
+</dict>
+</plist>

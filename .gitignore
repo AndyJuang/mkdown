@@ -1,7 +1,9 @@
 # PyInstaller build output
 build/
 dist/
+# Keep MkDown.spec tracked
 *.spec
+!MkDown.spec
 
 # Python
 __pycache__/

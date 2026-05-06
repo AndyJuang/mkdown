@@ -245,6 +245,19 @@ class MainWindow(QMainWindow):
         self._update_title()
         self._status_msg.setText('已建立新文件')
 
+    def open_path(self, path: str):
+        """Open a file by path — called from CLI args or macOS file-open events."""
+        try:
+            with open(path, encoding='utf-8') as f:
+                self.editor.set_text(f.read())
+            self._current_file = path
+            self._modified = False
+            self._update_title()
+            self._do_update_preview()
+            self._status_msg.setText(f'已開啟：{os.path.basename(path)}')
+        except Exception as e:
+            QMessageBox.critical(self, '開啟失敗', str(e))
+
     def open_file(self):
         if not self._ask_discard():
             return
