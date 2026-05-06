@@ -1,11 +1,13 @@
 # MkDown
 
-A minimal macOS Markdown editor with a live split-pane preview, dark mode support, and pinch-to-zoom — inspired by [MacDown](https://macdown.uranusjr.com/).
+A minimal macOS Markdown editor with live split-pane preview, multi-tab support, dark mode, and pinch-to-zoom — inspired by [MacDown](https://macdown.uranusjr.com/).
 
 ## Features
 
 - **Split-pane layout** — edit Markdown on the left, see the rendered result on the right in real time
-- **Syntax highlighting** — headers, bold, italic, code blocks, links, and more highlighted in the editor; colours adapt to light/dark theme automatically
+- **Multi-tab** — open multiple files simultaneously; ⌘T new tab, ⌘W close tab, ⌘1–⌘9 / ⌘⇧[ / ⌘⇧] to switch
+- **Drag & drop** — drag `.md` files directly into the window to open them in a new tab
+- **Syntax highlighting** — headers, bold, italic, code blocks, links highlighted in the editor; colours adapt to light/dark theme automatically
 - **Dark / Light / Auto theme** — follows macOS system appearance, or set manually via the View menu
 - **Pinch-to-zoom** — use a two-finger trackpad gesture to zoom the preview
 - **Chinese-friendly font** — preview uses PingFang TC (蘋方-繁) for comfortable Traditional Chinese reading
@@ -47,7 +49,7 @@ pyinstaller MkDown.spec --clean -y
 open dist/MkDown.app
 ```
 
-The resulting `dist/MkDown.app` (~150 MB, includes the full Qt framework) can be copied to `/Applications`.
+The resulting `dist/MkDown.app` can be copied to `/Applications`.
 
 > **First-launch note:** macOS may show an "unidentified developer" warning because the binary is not notarised.  
 > Right-click → **Open** → **Open** to bypass it, or go to **System Settings → Privacy & Security** and click **Open Anyway**.
@@ -56,13 +58,17 @@ The resulting `dist/MkDown.app` (~150 MB, includes the full Qt framework) can be
 
 | Action | Shortcut |
 |---|---|
-| New file | ⌘N |
+| New tab | ⌘T |
+| Close tab | ⌘W |
 | Open file | ⌘O |
 | Save | ⌘S |
 | Save As | ⌘⇧S |
 | Export PDF | ⌘⇧P |
 | Export HTML | ⌘⇧H |
 | Toggle preview | ⌘⇧M |
+| Switch to tab N | ⌘1 – ⌘9 |
+| Previous tab | ⌘⇧[ |
+| Next tab | ⌘⇧] |
 | Zoom in | ⌘= |
 | Zoom out | ⌘– |
 | Reset zoom | ⌘0 |
@@ -71,8 +77,8 @@ The resulting `dist/MkDown.app` (~150 MB, includes the full Qt framework) can be
 
 ```
 mkdown/
-├── main.py          # Entry point
-├── window.py        # Main window, menus, file operations
+├── main.py          # Entry point + macOS Apple Event handler
+├── window.py        # Main window, tab management, menus, file operations
 ├── editor.py        # Code editor widget with line numbers & syntax highlight
 ├── highlighter.py   # QSyntaxHighlighter for Markdown (theme-aware)
 ├── preview.py       # Live preview widget (QTextBrowser + Pygments)
@@ -87,7 +93,6 @@ mkdown/
 | Package | Purpose |
 |---|---|
 | PyQt5 | GUI framework |
-| PyQtWebEngine | (listed in requirements, not used at runtime — QTextBrowser is used instead for stability on macOS 15+) |
 | Markdown | Markdown → HTML rendering |
 | Pygments | Syntax highlighting for code blocks |
 
