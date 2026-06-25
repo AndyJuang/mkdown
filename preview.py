@@ -5,8 +5,8 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name, TextLexer, guess_lexer
 from pygments.formatters import HtmlFormatter
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QTextBrowser
-from PyQt5.QtCore import QMarginsF, Qt, QEvent, pyqtSignal
-from PyQt5.QtGui import QPageLayout, QPageSize
+from PyQt5.QtCore import Qt, QEvent, pyqtSignal
+from PyQt5.QtGui import QPageSize
 from PyQt5.QtPrintSupport import QPrinter
 
 # Body font: PingFang TC (macOS 系統黑體) → fallback
@@ -201,7 +201,7 @@ class PreviewWidget(QWidget):
         printer.setOutputFormat(QPrinter.PdfFormat)
         printer.setOutputFileName(path)
         printer.setPageSize(QPageSize(QPageSize.A4))
-        printer.setPageMargins(QMarginsF(15, 15, 15, 15), QPageLayout.Millimeter)
+        printer.setPageMargins(15, 15, 15, 15, QPrinter.Millimeter)
         self._browser.document().print_(printer)
         if callback:
             callback(True)
